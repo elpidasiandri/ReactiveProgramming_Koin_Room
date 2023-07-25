@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             LocalDatabase::class.java, "database"
         )
             .build()
-
+        insertSampleData()
         transitionLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
 
@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Ken Ken Ken",
-//            friendRequest = null,
             avatarUrl = ""
         )
 
@@ -73,7 +72,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Panos",
-         //   friendRequest = null,
             avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
         )
         val follower3 = FollowersEntity(
@@ -87,7 +85,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = false,
             lastName = "TestingTest",
-        //    friendRequest = null,
             avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
         )
         val follower4 = FollowersEntity(
@@ -101,7 +98,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = false,
             lastName = "Test",
-     //       friendRequest = null,
             avatarUrl = "https://i0.wp.com/post.psychcentral.com/wp-content/uploads/sites/4/2022/08/hand-stroking-petting-tabby-cat-1296x728-header-1024x575.jpg?w=1155&h=1528"
         )
         val follower5 = FollowersEntity(
@@ -115,7 +111,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "gdskjfkdjhgkjdhfkjgndfkjghdkfhgdkfjhgdkfhgkdjfgd",
-          //  friendRequest = null,
             avatarUrl = ""
         )
         val follower6 = FollowersEntity(
@@ -129,7 +124,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "allala",
-        //    friendRequest = null,
             avatarUrl = ""
         )
         val follower7 = FollowersEntity(
@@ -143,7 +137,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Pas",
-      //      friendRequest = null,
             avatarUrl = ""
         )
         val follower8 = FollowersEntity(
@@ -157,7 +150,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Panos",
-        //    friendRequest = null,
             avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
         )
         val follower9 = FollowersEntity(
@@ -171,7 +163,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "elpida",
-    //        friendRequest = null,
             avatarUrl = ""
         )
         val follower10 = FollowersEntity(
@@ -185,7 +176,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "tess",
-  //          friendRequest = null,
             avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
         )
         val follower11 = FollowersEntity(
@@ -199,7 +189,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "GG",
-     //       friendRequest = null,
             avatarUrl = "https://ideascdn.lego.com/media/generate/entity/lego_ci/project/3b7ef813-5a42-418d-bf96-07e58b61d132/6/resize:1600:900/legacyp"
         )
         val follower12 = FollowersEntity(
@@ -213,7 +202,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Panos",
-     //       friendRequest = null,
             avatarUrl = "https://diamondpet.storage.googleapis.com/wp-content/uploads/2019/04/01143720/cat-lying-on-grass-020123.jpg"
         )
 
@@ -251,7 +239,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Papa dopoulopu",
-         //   friendRequest = null,
             avatarUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fimage&psig=AOvVaw28KWFkTK71gX1fNhJy_BnC&ust=1690187972716000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOiV3v-2pIADFQAAAAAdAAAAABAE"
         )
         val following2 = FollowingEntity(
@@ -265,7 +252,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Papadopoulos Papadopoulos",
-        //    friendRequest = null,
             avatarUrl = "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg"
         )
         val following3 = FollowingEntity(
@@ -279,7 +265,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Papadopoulos Papadopoulos",
-          //  friendRequest = null,
             avatarUrl = "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg"
         )
 
@@ -294,7 +279,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Siandri ELPI",
-        //    friendRequest = null,
             avatarUrl = "https://i.natgeofe.com/n/9135ca87-0115-4a22-8caf-d1bdef97a814/75552_square.jpg"
         )
 
@@ -309,7 +293,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Maria Mary",
-    //        friendRequest = null,
             avatarUrl = "https://cat-world.com/wp-content/uploads/2017/07/healthy-cat-eyes.jpg"
         )
         val following6 = FollowingEntity(
@@ -323,7 +306,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "gg",
-       //     friendRequest = null,
             avatarUrl = "https://static.independent.co.uk/2023/03/13/14/28a981486ac0e011326aa4776ed7c9b7Y29udGVudHNlYXJjaGFwaSwxNjc4ODAzMjk0-2.58413464.jpg"
         )
 
@@ -338,7 +320,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "ABDCEF",
-        //    friendRequest = null,
             avatarUrl = ""
         )
 
@@ -353,7 +334,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "ABDCdsfsefsfjdfkjgdfkjdkjgfkjdgfkjdgfkjdgxfkjdgfEF",
-       //     friendRequest = null,
             avatarUrl = ""
         )
         val following9 = FollowingEntity(
@@ -367,7 +347,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "papapapapapapapapapapaa",
-       //     friendRequest = null,
             avatarUrl = ""
         )
         val following10 = FollowingEntity(
@@ -381,7 +360,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "maria",
-        //    friendRequest = null,
             avatarUrl = "https://media.cnn.com/api/v1/images/stellar/prod/230426143017-sand-cat-card.jpg?c=4x3"
         )
         val following11 = FollowingEntity(
@@ -395,7 +373,6 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "lalalalalalalalaalalallaa",
-          //  friendRequest = null,
             avatarUrl = ""
         )
         GlobalScope.launch {
@@ -417,17 +394,5 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-//    private fun readSampleData() {
-//        // Retrieving all authors and books
-//        GlobalScope.launch {
-//            val authors = localDatabase.authorDao().getA()
-//            val books = booksDatabase.bookDao().getAllBooks()
-//
-//            // Do something with the retrieved data (e.g., display it on UI)
-//            // ...
-//        }
-//    }
-
 }
 

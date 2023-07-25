@@ -1,11 +1,13 @@
 package com.example.myapplication.views.followersfollowing.following
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FFollowersFollowingBinding
 import com.example.myapplication.utils.extensions.show
 import com.example.myapplication.utils.IScrollListener
@@ -25,7 +27,7 @@ internal class FollowingFragment : Fragment(), IScrollListener {
     private var adapter = FollowingFollowersAdapter(
         WeakReference(this)
     )
-    private val viewModel: FollowingFollowersViewModel by  sharedViewModel()
+    private val viewModel: FollowingFollowersViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +40,7 @@ internal class FollowingFragment : Fragment(), IScrollListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel.loadFollowing()
+        viewModel.loadFollowing()
         initUI()
         initViewModel()
     }
@@ -47,25 +49,45 @@ internal class FollowingFragment : Fragment(), IScrollListener {
         Interactors.glide.clearMemoryCache()
         super.onDestroy()
     }
+
     private fun initViewModel() {
-        viewModel.uiState.subscribeToState(viewLifecycleOwner){
-            when(it.EventName){
-                FollowingFollowersEvents.IsEmpty ->{
+        viewModel.uiState.subscribeToState(viewLifecycleOwner) {
+            when (it.EventName) {
+                FollowingFollowersEvents.IsEmpty -> {
                     binding.emptyFollowersHolder.show()
                 }
-                FollowingFollowersEvents.LoadItems ->{
+
+                FollowingFollowersEvents.LoadItems -> {
+                    binding.listRefresher.show()
+                    binding.listRefresher.isRefreshing = false
                     adapter.submitList(it.followingList)
+                    viewModel.setEventNone()
                 }
-                else ->{}
+
+                else -> {}
             }
         }
     }
 
     private fun initUI() {
+        setAdapter()
+        setUpClickListeners()
+    }
 
+    private fun setUpClickListeners() {
+        binding.apply {
+            listRefresher.setOnRefreshListener {
+                listRefresher.isRefreshing = true
+                viewModel.loadFollowing()
+            }
+        }
+    }
+
+    private fun setAdapter() {
+        binding.listRecycler.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        binding.listRecycler.adapter = adapter
     }
 
     override fun onScrolledToEnd() {
-        TODO("Not yet implemented")
     }
 }

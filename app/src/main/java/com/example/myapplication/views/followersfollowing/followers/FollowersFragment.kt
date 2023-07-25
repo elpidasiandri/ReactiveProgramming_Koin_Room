@@ -1,6 +1,7 @@
 package com.example.myapplication.views.followersfollowing.followers
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +27,7 @@ internal class FollowersFragment : Fragment(), IScrollListener {
     private var adapter = FollowingFollowersAdapter(
         WeakReference(this)
     )
-    private val viewModel : FollowingFollowersViewModel by sharedViewModel()
+    private val viewModel: FollowingFollowersViewModel by sharedViewModel()
 
 
     override fun onCreateView(
@@ -40,37 +41,41 @@ internal class FollowersFragment : Fragment(), IScrollListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel.loadFollowers()
+        viewModel.loadFollowers()
         setAdapter()
         initUI()
         initViewModel()
     }
 
     private fun initViewModel() {
-        viewModel.uiState.subscribeToState(viewLifecycleOwner){
-            when(it.EventName){
-                FollowingFollowersEvents.IsEmpty ->{
+        viewModel.uiState.subscribeToState(viewLifecycleOwner) {
+            Log.d("Q12345 ", "it.EventName ${it.EventName}")
+            when (it.EventName) {
+                FollowingFollowersEvents.IsEmpty -> {
                     binding.emptyFollowersHolder.show()
                 }
-                FollowingFollowersEvents.LoadItems ->{
+                FollowingFollowersEvents.LoadItems -> {
+                    binding.listRefresher.show()
                     adapter.submitList(it.followerslist)
+                    viewModel.setEventNone()
                 }
-                else ->{}
+
+                else -> {}
             }
         }
     }
+
     private fun setAdapter() {
         adapter = FollowingFollowersAdapter(
             scrollListener = WeakReference(this),
         )
-        binding.followersRecycler.layoutManager = LinearLayoutManager(activity?.applicationContext)
-        binding.followersRecycler.adapter = adapter
+        binding.listRecycler.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        binding.listRecycler.adapter = adapter
     }
-    private fun initUI() {
 
+    private fun initUI() {
     }
 
     override fun onScrolledToEnd() {
-        TODO("Not yet implemented")
     }
 }

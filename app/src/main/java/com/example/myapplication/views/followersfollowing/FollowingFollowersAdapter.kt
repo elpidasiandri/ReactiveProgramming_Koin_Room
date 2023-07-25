@@ -12,6 +12,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.utils.Interactors
 import com.example.myapplication.R
 import com.example.myapplication.domain.FriendStatus
@@ -54,7 +55,7 @@ internal open class FollowingFollowersAdapter(
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: FollowingFollowersViewHolder, position: Int) {
         if (position == itemCount - 5 && itemCount > 10) {
-            scrollListener.get()?.onScrolledToEnd()
+         //   scrollListener.get()?.onScrolledToEnd()
         }
 
         val result = currentList[position]
@@ -70,12 +71,10 @@ internal open class FollowingFollowersAdapter(
 
         holder.friendName.text = result.name
         holder.friendUsername.text = result.userName ?: ""
-        Interactors.glide.loadCircleImage(
-            result.avatarUrl,
-            holder.avatar,
-            false,
-            R.drawable.ic_placeholder_face
-        )
+
+        Glide.with(context)
+            .load(result.avatarUrl)
+            .into(holder.avatar)
 
         when (result.status) {
             FriendStatus.FRIENDS -> {
