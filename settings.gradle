@@ -1,0 +1,36 @@
+pluginManagement {
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+buildscript{
+    ext{
+        ext.koin_version= "3.2.2"
+        ext.koin_android_version= "3.2.2"
+        ext.koin_android_compose_version= "3.2.1"
+        ext.koin_ktor= "3.2.2"
+    }
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://artifact.bytedance.com/repository/AwemeOpenSDK" }
+        maven { url "https://plugins.gradle.org/m2/"}
+        gradlePluginPortal()
+    }
+    dependencies {
+
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "My Application"
+include ':app'

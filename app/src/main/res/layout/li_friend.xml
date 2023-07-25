@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="13dp"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:id="@+id/avatarFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_avatar">
+
+            <com.example.myapplication.widget.RoundedImageView
+                android:id="@+id/searchAvatarIv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:src="@drawable/ic_placeholder_face"
+                app:border_color="@color/white"/>
+
+            <ImageView
+                android:id="@+id/waveIv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginBottom="1dp"
+                android:layout_gravity="bottom|start"
+                android:src="@drawable/skin_8wave_purple_"/>
+        </FrameLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/name_username_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginVertical="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/friendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.1"
+            android:maxLines="1"
+            android:textAppearance="@style/BodyTitle"
+            android:textColor="@color/new_black"
+            tools:text="Andrew Edgar" />
+
+        <TextView
+            android:id="@+id/friendUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/space_grotesk"
+            android:lineHeight="14sp"
+            android:maxLines="1"
+            android:textColor="@color/secondary_text_colour"
+            android:textSize="14sp"
+            tools:text="aedgar777" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sentIv"
+            android:layout_width="112dp"
+            android:layout_height="36dp"
+            android:background="@drawable/accent_ocean_square_pill_button"
+            android:gravity="center"
+            android:text="@string/friend"
+            android:textAppearance="@style/BodyTitle"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/pendingTv"
+            android:layout_width="112dp"
+            android:layout_height="36dp"
+            android:background="@drawable/accent_ocean_square_pill_button"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="@string/pending"
+            android:textAppearance="@style/BodyTitle"
+            android:textColor="@color/white"
+            android:visibility="gone">
+        </TextView>
+
+        <TextView
+            android:id="@+id/addButton"
+            android:layout_width="112dp"
+            android:layout_height="36dp"
+            android:background="@drawable/ocean_square_pill_button"
+            android:gravity="center"
+            android:text="@string/add_friend"
+            android:textAppearance="@style/BodyTitle"
+            android:textColor="@color/white"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/moreActionsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingStart="10dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="7dp"
+            android:src="@drawable/ic_ellipsis_black"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Title2XL">
+        <item name="android:fontFamily">@font/space_grotesk_bold</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TitleLarge">
+        <item name="android:fontFamily">@font/space_grotesk_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TitleMedium">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Title">
+        <item name="android:fontFamily">@font/space_grotesk_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TitleSecondary">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BodyText">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="CaptionTitle">
+        <item name="android:fontFamily">@font/space_grotesk_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Caption">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Link">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ButtonFont">
+        <item name="android:fontFamily">@font/space_grotesk_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="ButtonMediumFont">
+        <item name="android:fontFamily">@font/space_grotesk_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="ButtonSmallFont">
+        <item name="android:fontFamily">@font/space_grotesk_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="BodyTitle">
+        <item name="android:fontFamily">@font/space_grotesk_bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MessageAlert">
+        <item name="android:fontFamily">@font/space_grotesk_bold</item>
+        <item name="android:textColor">@color/new_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

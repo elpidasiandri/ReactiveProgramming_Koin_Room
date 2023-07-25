@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Reactive Programming</string>
+    <string name="search">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="pending">Pending</string>
+    <string name="friend">Friend</string>
+    <string name="add_friend">Add friend</string>
+    <string name="we_re_sorry_we_couldn_t_find_what_you_were_looking_for_please_try_a_different_search_term_or_check_your_spelling">We\'re sorry, we couldn\'t find what you were looking for. \n \nPlease try a different search term or check your spelling.</string>
+    <string name="create_post">Create Post</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="find_citizens">Find citizens</string>
+    <string name="find_following">Find following</string>
+    <string name="find_followers_search">Find followers</string>
+    <string name="following_text">Following (%s)</string>
+    <string name="followers_text">Followers (%s)</string>
+    <string name="next">Next</string>
+</resources>
