@@ -9,15 +9,15 @@ import com.example.myapplication.domain.UserRow
 @Entity(tableName = "followers")
 data class FollowersEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val name: String?,
-    val userName: String?,
-    val avatarUrl: String?,
-    val isVerifiedCreator: Boolean?,
-    var hasFriendRequest: Boolean?,
-    var status: String?,
-    val isFriends: Boolean?,
-    var friendRequestIsOut: Boolean?,
+    val id: Int  = 0,
+    val name: String?= "",
+    val userName: String?= "",
+    val avatarUrl: String?= "",
+    val isVerifiedCreator: Boolean? = false,
+    var hasFriendRequest: Boolean? = false,
+    var status: String?= "",
+    val isFriends: Boolean? = false,
+    var friendRequestIsOut: Boolean? = false,
     var amIfollowing: Boolean = false,
     val lastName: String = "",
 ){

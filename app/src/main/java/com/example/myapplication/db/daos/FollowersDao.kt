@@ -2,12 +2,13 @@ package com.example.myapplication.db.daos
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.myapplication.db.entinties.FollowersEntity
 
 @Dao
 interface FollowersDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(followerUser: FollowersEntity)
 
     @Query("SELECT * FROM followers")

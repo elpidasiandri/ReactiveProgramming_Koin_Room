@@ -55,7 +55,7 @@ internal open class FollowingFollowersAdapter(
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: FollowingFollowersViewHolder, position: Int) {
         if (position == itemCount - 5 && itemCount > 10) {
-         //   scrollListener.get()?.onScrolledToEnd()
+            //   scrollListener.get()?.onScrolledToEnd()
         }
 
         val result = currentList[position]
@@ -72,9 +72,16 @@ internal open class FollowingFollowersAdapter(
         holder.friendName.text = result.name
         holder.friendUsername.text = result.userName ?: ""
 
-        Glide.with(context)
-            .load(result.avatarUrl)
-            .into(holder.avatar)
+        if (result.avatarUrl.isNullOrBlank()) {
+            Glide.with(context)
+                .load(R.drawable.ic_placeholder_face)
+                .into(holder.avatar)
+        }
+        else {
+            Glide.with(context)
+                .load(result.avatarUrl)
+                .into(holder.avatar)
+        }
 
         when (result.status) {
             FriendStatus.FRIENDS -> {

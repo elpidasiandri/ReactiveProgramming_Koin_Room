@@ -41,23 +41,22 @@ internal class FollowersFragment : Fragment(), IScrollListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loadFollowers()
         setAdapter()
+        viewModel.loadFollowers()
         initUI()
         initViewModel()
     }
 
     private fun initViewModel() {
         viewModel.uiState.subscribeToState(viewLifecycleOwner) {
-            Log.d("Q12345 ", "it.EventName ${it.EventName}")
             when (it.EventName) {
                 FollowingFollowersEvents.IsEmpty -> {
                     binding.emptyFollowersHolder.show()
                 }
                 FollowingFollowersEvents.LoadItems -> {
                     binding.listRefresher.show()
+                    binding.listRefresher.isRefreshing = false
                     adapter.submitList(it.followerslist)
-                    viewModel.setEventNone()
                 }
 
                 else -> {}
@@ -74,8 +73,17 @@ internal class FollowersFragment : Fragment(), IScrollListener {
     }
 
     private fun initUI() {
+        setUpClickListeners()
     }
-
+    private fun setUpClickListeners() {
+        binding.apply {
+            listRefresher.setOnRefreshListener {
+                listRefresher.isRefreshing = true
+                viewModel.refreshFollowers()
+//                viewModel.loadFollowers()
+            }
+        }
+    }
     override fun onScrolledToEnd() {
     }
 }

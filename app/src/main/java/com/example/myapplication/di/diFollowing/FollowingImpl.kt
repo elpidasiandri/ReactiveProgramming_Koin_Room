@@ -10,7 +10,7 @@ internal class FollowingImpl(
        return dao.getFollowingList()
     }
 
-    override suspend fun searchFollowing(searchString: String) {
-        dao.searchFollowing(searchString)
+    override suspend fun searchFollowing(searchString: String) : List<FollowingEntity>{
+       return  dao.searchFollowing(searchString)
     }
 }

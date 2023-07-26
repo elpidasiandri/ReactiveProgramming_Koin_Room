@@ -4,5 +4,5 @@ import com.example.myapplication.db.entinties.FollowingEntity
 
 interface IFollowingRepo {
     suspend fun getFollowingList(): List<FollowingEntity>
-    suspend fun searchFollowing(searchString:String)
+    suspend fun searchFollowing(searchString: String): List<FollowingEntity>
 }

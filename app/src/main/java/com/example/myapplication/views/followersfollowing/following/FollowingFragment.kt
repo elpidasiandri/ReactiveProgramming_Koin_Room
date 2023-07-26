@@ -61,7 +61,6 @@ internal class FollowingFragment : Fragment(), IScrollListener {
                     binding.listRefresher.show()
                     binding.listRefresher.isRefreshing = false
                     adapter.submitList(it.followingList)
-                    viewModel.setEventNone()
                 }
 
                 else -> {}
@@ -78,7 +77,8 @@ internal class FollowingFragment : Fragment(), IScrollListener {
         binding.apply {
             listRefresher.setOnRefreshListener {
                 listRefresher.isRefreshing = true
-                viewModel.loadFollowing()
+                viewModel.refreshFollowing()
+//                viewModel.loadFollowing()
             }
         }
     }

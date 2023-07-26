@@ -17,11 +17,13 @@ internal class FollowingFollowersViewModel(
 ) : ViewModel() {
     val uiState = ViewState(FollowingFollowersState())
     fun loadFollowers() {
+
         var followerList = emptyList<UserRow>()
         viewModelScope.launch {
             followerList = getFollowersImpl.getFollowersList().map {
                 it.convertFollowersListToUser()
             }
+            Log.d("Q12345", " loadFollowers followerList $followerList")
             uiState.updateState {
                 it.copy(
                     followerslist = followerList,
@@ -38,7 +40,22 @@ internal class FollowingFollowersViewModel(
             )
         }
     }
-
+    fun refreshFollowing(){
+        uiState.updateState {
+            it.copy(
+                EventName =  FollowingFollowersEvents.Refresh
+            )
+        }
+        loadFollowing()
+    }
+    fun refreshFollowers(){
+        uiState.updateState {
+            it.copy(
+                EventName =  FollowingFollowersEvents.Refresh
+            )
+        }
+        loadFollowers()
+    }
     fun loadFollowing() {
         var followingList = emptyList<UserRow>()
         viewModelScope.launch {
@@ -54,8 +71,21 @@ internal class FollowingFollowersViewModel(
         }
     }
 
-    fun searchFollowers() {
+    fun searchFollowers(searchString: String) {
+        var searchFollowingList = emptyList<UserRow>()
 
+        viewModelScope.launch {
+            searchFollowingList = getFollowingImpl.searchFollowing(searchString).map {
+                it.convertFollowingListToUser()
+            }
+            uiState.updateState {
+                it.copy(
+                    searchFollowingList = searchFollowingList,
+                    searchMode = true,
+                    EventName = if (searchFollowingList.isEmpty()) FollowingFollowersEvents.IsEmpty else FollowingFollowersEvents.LoadItems
+                )
+            }
+        }
     }
 
     fun searchFollowing() {
