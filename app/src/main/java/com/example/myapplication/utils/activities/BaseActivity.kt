@@ -15,7 +15,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.example.myapplication.utils.Interactors
 import com.example.myapplication.R
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
@@ -35,7 +34,6 @@ open class BaseActivity : AppCompatActivity(), INavigationRequestListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Interactors.context = application
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         window.statusBarColor = resources.getColor(R.color.white, resources.newTheme())
     }

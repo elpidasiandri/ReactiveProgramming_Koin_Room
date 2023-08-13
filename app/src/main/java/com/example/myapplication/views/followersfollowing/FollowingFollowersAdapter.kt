@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myapplication.utils.Interactors
 import com.example.myapplication.R
 import com.example.myapplication.domain.FriendStatus
 import com.example.myapplication.domain.UserRow

@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.tools.build.jetifier.core.utils.Log
 import com.example.myapplication.databinding.FFollowersFollowingBinding
 import com.example.myapplication.utils.extensions.show
 import com.example.myapplication.utils.IScrollListener
-import com.example.myapplication.utils.Interactors
 import com.example.myapplication.utils.extensions.hide
 import com.example.myapplication.views.followersfollowing.FollowingFollowersAdapter
 import com.example.myapplication.views.followersfollowing.viewModel.FollowingFollowersEvents
@@ -41,14 +39,11 @@ internal class FollowingFragment : Fragment(), IScrollListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.loadFollowing()
         initUI()
         initViewModel()
     }
 
-    override fun onDestroy() {
-        Interactors.glide.clearMemoryCache()
-        super.onDestroy()
-    }
 
     private fun initViewModel() {
         viewModel.uiState.subscribeToState(viewLifecycleOwner) {

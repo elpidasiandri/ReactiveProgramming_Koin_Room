@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = false,
             lastName = "TestingTest",
-            avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
+            avatarUrl = "https://media.real.gr/filesystem/images/20211209/low/968_252863_290755.JPG"
         )
         val follower4 = FollowersEntity(
             id = 4,
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         )
         val follower8 = FollowersEntity(
             id = 8,
-            name = "Panos",
+            name = "gikuhdsgikgnjdkfgdsfhgfgdgffgdfgdf",
             userName = "Panos",
             isVerifiedCreator = true,
             hasFriendRequest = false,
@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Panos",
-            avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
+            avatarUrl = "https://www.tovima.gr/wp-content/uploads/2022/10/30/26944305_alienearth.jpg"
         )
         val follower9 = FollowersEntity(
             id = 9,
@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         )
         val follower10 = FollowersEntity(
             id = 10,
-            name = "testing",
+            name = "testiffffffffffffffffffffffffffffffffng",
             userName = "tes",
             isVerifiedCreator = true,
             hasFriendRequest = false,
@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "tess",
-            avatarUrl = "https://www.animalsaroundtheglobe.com/wp-content/uploads/2023/02/ray-shrewsberry-ndPI6KgxcQg-unsplash-e1676370211442-1200x800.jpg.webp"
+            avatarUrl = "https://www.ekriti.gr/sites/default/files/styles/max_1300x1300/public/2022-05/1576682958_https_2f-2fmoviewriternyu.files.wordpress.com-2f2014-2f05-2faliens1.jpg?itok=ImYCQICd"
         )
         val follower11 = FollowersEntity(
             id = 11,

@@ -40,7 +40,6 @@ class AFollowingFollowersScreen : BaseActivity() {
         setContentView(binding.root)
         overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out)
         loadKoinModules(followingFollowersScreenModule)
-        viewModel.loadFollowing()
         setUpAdapterTab()
         setUpUi()
         setUpClickListeners()
