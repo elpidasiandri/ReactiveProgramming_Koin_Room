@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface IFollowersRepo {
     suspend fun getFollowersList(): List<FollowersEntity>
-    suspend fun searchFollowers(searchString: String)
+    suspend fun searchFollowers(searchString: String): List<FollowersEntity>
 }

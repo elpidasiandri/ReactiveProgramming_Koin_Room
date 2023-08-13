@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.android.tools.build.jetifier.core.utils.Log
 import com.example.myapplication.R
 import com.example.myapplication.utils.activities.BaseActivity
 import com.example.myapplication.databinding.FollowingFollowersScreenBinding
@@ -20,14 +21,17 @@ import com.example.myapplication.utils.FormatUtils
 import com.example.myapplication.utils.SetUpTabsSelectedUnselected
 import com.example.myapplication.views.followersfollowing.followers.FollowersFragment
 import com.example.myapplication.views.followersfollowing.following.FollowingFragment
+import com.example.myapplication.views.followersfollowing.viewModel.FollowingFollowersViewModel
 import com.example.myapplication.views.followersfollowing.viewModel.di.followingFollowersScreenModule
 import com.google.android.material.tabs.TabLayoutMediator
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
 class AFollowingFollowersScreen : BaseActivity() {
     private lateinit var binding: FollowingFollowersScreenBinding
     private var activeTab = 0
+    private val viewModel: FollowingFollowersViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,7 @@ class AFollowingFollowersScreen : BaseActivity() {
         setContentView(binding.root)
         overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out)
         loadKoinModules(followingFollowersScreenModule)
+        viewModel.loadFollowing()
         setUpAdapterTab()
         setUpUi()
         setUpClickListeners()
@@ -68,28 +73,25 @@ class AFollowingFollowersScreen : BaseActivity() {
                 timerForSearch,
                 lifecycleScope,
                 { text ->
-//                    viewModelFollowing.refresh()
-//                    viewModelFollowers.refresh()
-                    when (binding.pager.currentItem) {
-//                        0 -> viewModelFollowing.onAfterTextChanged()
-//                        else -> viewModelFollowers.onAfterTextChanged()
-                    }
-                    //      search(text.toString())
+                    search(text.toString())
                 },
                 {}
             )
 
             cancelSearch {
-                //  cancelSearch()
+                cancelSearch()
                 hideKeyboard()
             }
 
             cleanSearch {
-                //     cancelSearch()
-//                viewModelFollowing.loadItems()
-//                viewModelFollowers.loadItems()
+                cancelSearch()
             }
         }
+    }
+
+    private fun cancelSearch() {
+            viewModel.onCancelSearchFollowing()
+            viewModel.onCancelSearchFollowers()
     }
 
     private fun setUpAdapterTab() {
@@ -139,15 +141,14 @@ class AFollowingFollowersScreen : BaseActivity() {
         })
         binding.pager.currentItem = activeTab
     }
+
     @SuppressLint("CheckResult")
     private fun search(keyword: String) {
-//        if (keyword.isNotEmpty()) {
-//            when (binding.pager.currentItem) {
-//                0 -> viewModelFollowing.onSearch(keyword)
-//                else -> viewModelFollowers.onSearch(keyword)
-//            }
-//        } else cancelSearchWhenNotExistKeyword()
+        if (keyword.isNotEmpty()) {
+            viewModel.onSearch(keyword)
+        } else viewModel.onCancelSearchFollowing()
     }
+
     private fun tabUi(text: Int, activeTabIndex: Int) {
         binding.searchBarComponent.setHint(getString(text))
         val tab = binding.followingFollowersTab.getTabAt(0)!!

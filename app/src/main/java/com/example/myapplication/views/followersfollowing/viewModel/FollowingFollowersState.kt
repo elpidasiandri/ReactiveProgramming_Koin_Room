@@ -7,15 +7,16 @@ data class FollowingFollowersState(
     val followerslist:List<UserRow> = emptyList(),
     val followingList:List<UserRow> = emptyList(),
     val searchFollowingList:List<UserRow> = emptyList(),
+    val searchFollowersList:List<UserRow> = emptyList(),
     val searchMode: Boolean = false,
 )
 
 enum class FollowingFollowersEvents {
     None,
-    LoadItems,
-    LoadMore,
+    LoadItemsFollowing,
     Refresh,
     IsEmpty,
-    SearchItems,
-    SearchLoadMore
+    CancelSearchFollowing,
+    CancelSearchFollowers,
+    LoadItemsFollowers
 }

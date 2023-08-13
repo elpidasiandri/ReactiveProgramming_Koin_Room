@@ -239,7 +239,7 @@ class MainActivity : AppCompatActivity() {
             friendRequestIsOut = false,
             amIfollowing = true,
             lastName = "Papa dopoulopu",
-            avatarUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fimage&psig=AOvVaw28KWFkTK71gX1fNhJy_BnC&ust=1690187972716000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOiV3v-2pIADFQAAAAAdAAAAABAE"
+            avatarUrl = "https://www.hindustantimes.com/ht-img/img/2023/07/10/550x309/labrador-retriever-gfd78b67cf_1280_1677927949246_1688982230758.jpg"
         )
         val following2 = FollowingEntity(
             id = 2,
