@@ -53,10 +53,6 @@ internal open class FollowingFollowersAdapter(
 
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: FollowingFollowersViewHolder, position: Int) {
-        if (position == itemCount - 5 && itemCount > 10) {
-            //   scrollListener.get()?.onScrolledToEnd()
-        }
-
         val result = currentList[position]
         val context = holder.itemView.context
 
