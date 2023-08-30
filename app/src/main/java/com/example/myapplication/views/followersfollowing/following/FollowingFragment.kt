@@ -54,8 +54,7 @@ internal class FollowingFragment : Fragment(), IScrollListener {
                 FollowingFollowersEvents.LoadItemsFollowing -> {
                     showFollowingList()
                     binding.listRefresher.isRefreshing = false
-                    val new = it.followingList.toSet().distinct()
-                    adapter.submitList(new)
+                    adapter.submitList(it.followingList)
                 }
                 FollowingFollowersEvents.CancelSearchFollowing -> {
                     viewModel.setEventNone()
@@ -76,7 +75,7 @@ internal class FollowingFragment : Fragment(), IScrollListener {
                 } else {
                     showSearchList()
                     hideFollowingList()
-                    val userRowList = followingResults.toSet().distinct().map { it.convertFollowingListToUser() }
+                    val userRowList = followingResults.map { it.convertFollowingListToUser() }
                     searchAdapter.submitList(userRowList)
                 }
             }

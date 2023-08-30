@@ -12,6 +12,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.android.tools.build.jetifier.core.utils.Log
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.domain.FriendStatus
@@ -71,13 +72,11 @@ internal open class FollowingFollowersAdapter(
             Glide.with(context)
                 .load(R.drawable.ic_placeholder_face)
                 .into(holder.avatar)
-        }
-        else {
+        } else {
             Glide.with(context)
                 .load(result.avatarUrl)
                 .into(holder.avatar)
         }
-
         when (result.status) {
             FriendStatus.FRIENDS -> {
                 holder.areFriends.show()
@@ -86,9 +85,16 @@ internal open class FollowingFollowersAdapter(
             }
 
             FriendStatus.NOT_REQUESTED -> {
-                holder.areFriends.hide()
-                holder.addButton.show()
-                holder.pendingTv.hide()
+                val isFriends = result.isFriends ?: false
+                if (isFriends) {
+                    holder.areFriends.show()
+                    holder.addButton.hide()
+                    holder.pendingTv.hide()
+                } else {
+                    holder.areFriends.hide()
+                    holder.addButton.show()
+                    holder.pendingTv.hide()
+                }
             }
 
             FriendStatus.PENDING -> {
