@@ -54,7 +54,7 @@ internal class FollowingFragment : Fragment(), IScrollListener {
                 FollowingFollowersEvents.LoadItemsFollowing -> {
                     showFollowingList()
                     binding.listRefresher.isRefreshing = false
-                    adapter.submitList(it.followingList)
+                    adapter.submitList(it.followingList.toSet().toList())
                 }
                 FollowingFollowersEvents.CancelSearchFollowing -> {
                     viewModel.setEventNone()

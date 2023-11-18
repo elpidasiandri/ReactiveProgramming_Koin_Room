@@ -80,7 +80,7 @@ internal class FollowersFragment : Fragment(), IScrollListener {
                     showFollowersList()
                     hideSearchList()
                     binding.listRefresher.isRefreshing = false
-                    adapter.submitList(it.followerslist)
+                    adapter.submitList(it.followerslist.toSet().toList())
                 }
                 FollowingFollowersEvents.CancelSearchFollowers -> {
                     viewModel.setEventNone()

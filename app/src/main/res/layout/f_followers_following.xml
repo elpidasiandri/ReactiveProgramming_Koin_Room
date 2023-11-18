@@ -21,7 +21,6 @@
             android:layout_height="1dp"
             android:background="@color/gray_altering" />
     </LinearLayout>
-    <!--    followers layout-->
     <RelativeLayout
         android:id="@+id/followers_list"
         android:layout_width="match_parent"
@@ -46,6 +45,7 @@
                 android:text="@string/we_re_sorry_we_couldn_t_find_what_you_were_looking_for_please_try_a_different_search_term_or_check_your_spelling"
                 android:textAppearance="@style/TitleSecondary"
                 android:gravity="center"
+                tools:visibility="gone"
                 android:textColor="@color/new_black"
                 />
 
